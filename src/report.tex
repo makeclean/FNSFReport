@@ -21,11 +21,11 @@
 \begin{document}
  
 \begin{abstract}
-Neutronics analysis was performed on the latest Fusion Energy System Studies - Fusion Neutron Science Facility (FESS-FNSF) design which covered the neutron wall loading, tritium breeding ratio, radiation damage, and shutdown dose rate calculations. Sixteen different sector configurations were investigated with a main focus on determining the impact which each has upon the Tritium Breeding Ratio (TBR) of the whole facility.
+Neutronics analysis was performed on the latest Fusion Energy System Studies - Fusion Neutron Science Facility (FESS-FNSF) design which covered the neutron wall loading, tritium breeding ratio, radiation damage, and shutdown dose rate calculations. Sixteen different sector configurations were investigated with a main focus on determining the impact which each has upon the tritium breeding ratio (TBR) of the whole facility. This paper describes the stages of nuclear analysis that serve to prove the radiation derived attributes of the system.
 
 \vspace{5mm}
 \noindent
-Keywords: FESS-FNSF, TBR, radiation damage, SDDR
+Keywords: FESS-FNSF, TBR, radiation damage, SDDR, DAGMC
 \end{abstract}
 
 \begin{titlepage}
@@ -37,19 +37,35 @@ Keywords: FESS-FNSF, TBR, radiation damage, SDDR
 
 \newpage
 \section{Introduction}
-The Fusion Energy Systems Studies Fusion Nuclear Science Facility (FESS-FNSF \cite{ref_1}) is considered an essential element of the US fusion roadmap that displays a strategic  pathway from ITER, to US DEMO, and eventually to the first commercial power plant. A FNSF will help bridge the research gap between ITER - low radiation damage, short pulses, no tritium breeding - and DEMO which is designed to operate at power plant relevant fusion parameters. The FNSF will advance the understanding of fusion nuclear sciences (FNS) by providing an integrated platform for establishing a database on all components up to relevant parameters (e.g. 40-60 dpa, blanket temperatures 500-600 C) via in-depth investigation of issues related to Plasma boundary interface (materials interaction with high energy neutron flux, surface/volumetric heating, radiation damage, and gas production), operating in power plant relevant fusion core conditions (temperatures, coolant/breeder flow rates, pressures/stresses, B-field, and neutrons), tritium breeding/extraction/processing, advancing and demonstrating plasma technologies that support very long duration operations, etc.  
+The Fusion Energy Systems Studies Fusion Nuclear Science Facility (FESS-FNSF \cite{ref_1}) is considered an essential element of the US fusion roadmap that displays a strategic  pathway from ITER, to US DEMO, and eventually to the first commercial power plant. A FNSF will help bridge the research gap between ITER - low radiation damage, short pulses, no tritium breeding - and DEMO which is designed to operate at power plant relevant fusion parameters. The FNSF will advance the understanding of fusion nuclear sciences (FNS) by providing an integrated platform for establishing a database on all components up to relevant parameters (e.g. 40-60 dpa, blanket temperatures 500-600 \textsuperscript{o}C) via in-depth investigation of issues related to Plasma boundary interface (materials interaction with high energy neutron flux, surface/volumetric heating, radiation damage, and gas production), operating in power plant relevant fusion core conditions (temperatures, coolant/breeder flow rates, pressures/stresses, B-field, and neutrons), tritium breeding/extraction/processing, advancing and demonstrating plasma technologies that support very long duration operations, etc.  
 
-This paper describes the stages of nuclear analysis that serve to prove the radiation derived attributes of the system.
+The FNSF subjected to this study is a tokamak-based facility with a 518 MW fusion power and a machine average neutron wall loading (NWL) of 1.1 MW/m\textsuperscript{2}. The radiation damage to the first wall was calculated followed by a shielding analysis. Shielding optimization \cite{ref_2} involved testing the effect of the inboard shielding materials on the radiation damage levels at the magnet with an inboard breeding blanket and the results showed that the radiation levels at the magnet are within acceptable limits. Such calculations involved estimating the fast neutron fluence, nuclear heating at the coil case, and atomic displacement to the Cu stabilizer.
+
+A detailed tritium breeding study was also performed to assess the effect of various design elements on the tritium breeding ratio (TBR) of the dual-cooled lithium lead (DCLL) blanket which confirmed tritium self-sufficiency, a value of TBR $\sim$ 1 with 4\% margin. Following the TBR calculations, shutdown dose rate analysis was performed which involved irradiation of one sector in the model (without any penetrations r ports) where the operation of the facilty was assumed to be at constant flux levels for 4.2 years followed by a shutdown. The dose rate was estimated at 0 s, 1 d, 7 d, 15 d, 1 y following the shutdown. 
+
+In section II the software tools used in this study will be described and in section III NWL results will be introduced. In section IV focus will be on the tritium breeding calculations. In section V magnet shielding and radiation damage calculations will be discussed and finally in section VI the shutdown dose rate calculations will be presented.
 
 \subsection{Configuration}
-The systems studies calculations performed have lead to a radial build which defines the material basis for these calculations.
-\subsection{Full 3D Build}
-The radial build calculation defines the major materials and dimensions that produce the 3D assembly CAD model shown in Figure \ref{fig:cad_fess_fnsf_3d}.
+The first step in the analysis involved optimization of the OB and IB radial build and the divertor vertical build and resulted in a complete definition of the material composition of the different regions taking into account the configuration of the facility, radiation limits especially at the magnet (and other long lifetime components), selection of low activation materials, environmental and safety constraints, and temperature limits for several in-vessel components. The OB radial build and the corresponding material composition of each layer is shown in figure \ref{fig:OB_radial} and the detailed composition is;
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.4]{../plots/fess_fnsf_3d_cad.png}
+  \includegraphics[scale=0.2]{../plots/OB_comp.png}
+  \label{fig:OB_comp}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{../plots/OB_radial.png}
+  \caption{The OB radial build}
+  \label{fig:OB_radial}
+\end{figure}
+
+\subsection{Full 3D Build}
+The radial build calculation defines the major materials and dimensions that produce the 3D assembly CAD model shown in Figure \ref{fig:Full3D}. The model consists of 16 sectors with 2 cm assembly gaps. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.3]{../plots/full_3d.png}
   \caption{The full 3D CAD model of a single FESS-FNSF sector}
-  \label{fig:cad_fess_fnsf_3d}
+  \label{fig:Full3D}
 \end{figure}
 
 \section{Analysis Tools}
@@ -68,7 +84,8 @@ workflow steps
 \subsection{Penetrations and Ports}
 figure and results
 \subsection{Li-6 Enrichment}
-One of the advantages of the DCLL blanket is allowing the control of the T bred by controlling the  Li6 enrichment in LiPb in the main flow channels. Controlling Li6 enrichment is necessary to avoid dealing with a surplus or shortage of T. Analyses were performed to test the effect of changing Li6 enrichment on the overall TBR of the facility (with all penetrations and ports included) and it was found that the TBR dropped to 1.0191 +/- 0.03%, 0.9892 +/- 0.03%, and 0.9513 +/- 0.03% for 70%, 60%, and 50% Li6  enrichment, respectively. The TBR satisfies the tritium breeding requirement of 1.04 with ~ 80% Li6 enrichment and the results are shown in figure 6.
+One of the advantages of the DCLL blanket is allowing the control of the T bred by controlling the  Li6 enrichment in LiPb in the main flow channels. Controlling Li6 enrichment is necessary to avoid dealing with a surplus or shortage of T. Analyses were performed to test the effect of changing Li6 enrichment on the overall TBR of the facility (with all penetrations and ports included) and it was found that the TBR dropped to $1.0191\pm 0.03\%$, $0.9892\pm 0.03\%$, and $0.9513\pm 0.03\%$ for 70\%, 60\%, and 50\% Li6  enrichment, respectively. The TBR satisfies the tritium breeding requirement of 1.04 with ~ 80\% Li6 enrichment and the results are shown in figure 6.
+
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.25]{../plots/Li6_enrichment.png}
@@ -95,6 +112,8 @@ introduction and r2s worflow
 \begin{thebibliography}{10} 
 \bibitem{ref_1} 
 C. E. KESSEL, et al, {“The Fusion Nuclear Science Facility, the Critical Step in the Pathway to Fusion Energy,” Fusion Science and Technology, vol. 68, p. 225–236 (2015).}
+\bibitem{ref_2} 
+L. El-Guebaly, et al, {“Design Approach for FESS-FNSF In-Vessel Components and Constraints Imposed on Radial/Vertical Build Definition,” presented at 22nd ANS Topical Meeting on the Technology of Fusion Energy (TOFE), August 22 -25, 2016, Philadelphia, PA. To be published in Fusion Science and Technology.}
 \end{thebibliography}
 
 \end{document}
