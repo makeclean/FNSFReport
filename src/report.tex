@@ -84,8 +84,29 @@ An MCNP sampling routine was written to sample the neutrons for the transport ca
 \end{figure}
 
 \section{Neutron Wall Loading} \label{Neutron Wall Loading}
-Calculations FWs and Divs
-\begin{figure}[h!]
+The first step in the analysis applied to the full 3-D model involved calculations of the NWL distributions at the IB \& OB FWs, the inner \& outer divertor plates, and the middle divertor plate (dome). The vertical distribution of the NWL at the FWs (figure \ref{fig:NWL FWs}) and inner \& outer divertor plates (figure \ref{fig:NWL 2Divs}) were calculated over segments $\sim$ \SI{10}{cm} high. The radial distribution of the NWL at the dome is shown in figure \ref{fig:NWL Dome}. Table \ref{NWL peak and average values} shows the calculated peak and average values at the FWs and divertors. The peak values at the FWs occur at the midplane while for the inner and outer divertors it occurs at the bottom portion of the plate where it's closer to the plasma source. For the inner dome the peak value occurs at the middle.  
+\begin{table}
+	\caption{NWL peak and average values}
+	\label{NWL peak and average values}
+	\begin{tabular}{ |c|c|c|c| } 
+		\hline
+		 {} & Peak NWL [MW/m\textsuperscript{2}] & Average NWL [MW/m\textsuperscript{2}] \\
+		\hline
+		{OB FW} & 1.75 $\pm$ 0.11\% & 1.35 \\
+		\hline
+		{IB FW} & 1.31 $\pm$ 0.17\% & 0.86 \\
+		\hline
+		{Inner Divertor} & 0.79 $\pm$ 0.25\% & 0.32 \\
+		\hline
+		{Dome} & 0.66 $\pm$ 0.27\% & 0.49 \\
+		\hline
+		{Outer Divertor} & 0.76 $\pm$ 0.14\% & 0.35 \\
+		\hline
+		{3 Divertor plates} & 0.79 $\pm$ 0.13\% & 0.38 \\
+		\hline
+	\end{tabular}
+\end{table}
+ \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.2]{../plots/NWL_FWs.png}
   \caption{The NWL vertical distribution at IB $\&$ OB FW}
@@ -93,20 +114,21 @@ Calculations FWs and Divs
 \end{figure}
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.3]{../plots/NWL_div.png}
-  \caption{The NWL distribution at the dome}
-  \label{fig:NWL Dome}
-\end{figure}
-\begin{figure}[h!]
-  \centering
   \includegraphics[scale=0.3]{../plots/NWL_2divs.png}
   \caption{The NWL vertical distribution at the inner and outer divertors}
   \label{fig:NWL 2Divs}
 \end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.3]{../plots/NWL_div.png}
+	\caption{The NWL distribution at the dome}
+	\label{fig:NWL Dome}
+\end{figure}
 
 \section{Tritium Breeding Calculations} \label{Tritium Breeding Calculations}
-Introduction
-importance of accurate measurements of TBR
+The rich fusion research literature shows a growing interest to achieve ignition via the D-T fuel cycle and because of to the scarcity of T in nature and the high cost of T consumed by fusion power plants (55.6 kg/full power year (FPY)/GW) \cite{ref_4}, all power plants developed to date that employs the D-T fuel cycle are required to breed T in blankets surrounding the plasma. As a result the the need for TBR (ratio of tritium bred in the blankets to that consumed in the plasma) calculations with high certainty grew substantially and the TBR is considered an essential metric in the design phase.
+
+The blanket of choice for the FESS-FNSF project is the dual cooled lead-lithium (DCLL) \cite{ref_8} blanket. The blanket consists of $\pm$ \SI{20}{cm} radial/toroidal flow channels of LiPb eutectic (15.7 at\% Li (90\% Li6 enrichment) and 84.3 at\% Pb) surrounded by \SI{0.5}{cm} SiC FCI (flow channel insert) and \SI{0.2}{cm} layer of LiPb. The blanket is cooled by helium at high pressure (\SI{8}{MPa}) which is also used for heat removal in other components such as FW and blanket side/back/front walls. The blanket also serves other purposes besides breeding T such as the removal of volumetric heat deposited by fast neutrons from the plasma and shielding the outer components; structural ring (SR), vacuum vessel (VV), and magnets.
 \subsection{TBR Workflow} \label{TBR Workflow}
 workflow steps
 \subsection{Penetrations and Ports} \label{Penetrations and Ports}
@@ -139,19 +161,21 @@ introduction and r2s worflow
 \section{References}
 \begin{thebibliography}{10} 
 \bibitem{ref_1} 
-C. E. KESSEL, et al, {“The Fusion Nuclear Science Facility, the Critical Step in the Pathway to Fusion Energy,” Fusion Science and Technology, vol. 68, p. 225–236 (2015).}
+C. E. KESSEL, et al., {“The Fusion Nuclear Science Facility, the Critical Step in the Pathway to Fusion Energy,” Fusion Science and Technology, vol. 68, p. 225–236 (2015).}
 \bibitem{ref_2} 
-L. El-Guebaly, et al, {“Design Approach for FESS-FNSF In-Vessel Components and Constraints Imposed on Radial/Vertical Build Definition,” presented at 22nd ANS Topical Meeting on the Technology of Fusion Energy (TOFE), August 22 -25, 2016, Philadelphia, PA. To be published in Fusion Science and Technology.}
+L. El-Guebaly, et al., {“Design Approach for FESS-FNSF In-Vessel Components and Constraints Imposed on Radial/Vertical Build Definition,” presented at 22nd ANS Topical Meeting on the Technology of Fusion Energy (TOFE), August 22 -25, 2016, Philadelphia, PA. To be published in Fusion Science and Technology.}
 \bibitem{ref_3}
-Clement Fausser, et al, {“Tokamak D-T Neutron Source Models for Different Plasma Physics Confinement Modes.” Fusion Engineering and Design, vol. 87, p. 787–792 (2012).} 
+Clement Fausser, et al., {“Tokamak D-T Neutron Source Models for Different Plasma Physics Confinement Modes.” Fusion Engineering and Design, vol. 87, p. 787–792 (2012).} 
 \bibitem{ref_4}
-L. A. EL-GUEBALY, et al, {“Toward the Ultimate Goal of Tritium Self-Sufficiency: Technical Issues and Requirements Imposed on ARIES Advanced Power Plants,” Fusion Engineering and Design, vol. 84, p. 2072-2083 (2009).}
+L. A. EL-GUEBALY, et al., {“Toward the Ultimate Goal of Tritium Self-Sufficiency: Technical Issues and Requirements Imposed on ARIES Advanced Power Plants,” Fusion Engineering and Design, vol. 84, p. 2072-2083 (2009).}
 \bibitem{ref_5}
-X-5 Monte Carlo Team, {MCNPTM a General Monte Carlo N-Particle Transport Code Version 5, Tech. Rep. LA-CP-03-0245, Los Alamos National Laboratory, MCNP 5, (March 2005).}
+X-5 Monte Carlo Team, {MCNP a General Monte Carlo N-Particle Transport Code Version 5, Tech. Rep. LA-CP-03-0245, Los Alamos National Laboratory, MCNP 5, (March 2005).}
 \bibitem{ref_6}
 {DAGMC: http://svalinn.github.io/DAGMC/}
 \bibitem{ref_7}
-D. L. ALDAMA and et al, {“FENDL2.1, Update of an Evaluated Nuclear Data Library for Fusion applications.” IAEA report INDC (NDS) 467, Vienna, Austria (2004).}
+D. L. ALDAMA and et al., {“FENDL2.1, Update of an Evaluated Nuclear Data Library for Fusion applications.” IAEA report INDC (NDS) 467, Vienna, Austria (2004).}
+\bibitem{ref_8}
+S. MALANG et al., {“Development of the Lead Lithium (DCLL) Blanket Concept,” Fusion Science and Technology, 60, 249 (2011).}
 \end{thebibliography}
 
 \end{document}
