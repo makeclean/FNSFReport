@@ -126,13 +126,32 @@ The first step in the analysis applied to the full 3-D model involved calculatio
 \end{figure}
 
 \section{Tritium Breeding Calculations} \label{Tritium Breeding Calculations}
-The rich fusion research literature shows a growing interest to achieve ignition via the D-T fuel cycle and because of to the scarcity of T in nature and the high cost of T consumed by fusion power plants (55.6 kg/full power year (FPY)/GW) \cite{ref_4}, all power plants developed to date that employs the D-T fuel cycle are required to breed T in blankets surrounding the plasma. As a result the the need for TBR (ratio of tritium bred in the blankets to that consumed in the plasma) calculations with high certainty grew substantially and the TBR is considered an essential metric in the design phase.
+The rich fusion research literature shows a growing interest to achieve ignition via the D-T fuel cycle and due to the scarcity of T in nature and the high cost of T consumed by fusion power plants (55.6 kg/full power year (FPY)/GW) \cite{ref_4}, all power plants developed to date that employs the D-T fuel cycle are required to breed T in blankets surrounding the plasma. As a result the need for TBR (ratio of tritium bred in the blankets to that consumed in the plasma) calculations with high certainty grew substantially and the TBR is considered an essential metric in the design phase.\vspace{5mm}
 
-The blanket of choice for the FESS-FNSF project is the dual cooled lead-lithium (DCLL) \cite{ref_8} blanket. The blanket consists of $\pm$ \SI{20}{cm} radial/toroidal flow channels of LiPb eutectic (15.7 at\% Li (90\% Li6 enrichment) and 84.3 at\% Pb) surrounded by \SI{0.5}{cm} SiC FCI (flow channel insert) and \SI{0.2}{cm} layer of LiPb. The blanket is cooled by helium at high pressure (\SI{8}{MPa}) which is also used for heat removal in other components such as FW and blanket side/back/front walls. The blanket also serves other purposes besides breeding T such as the removal of volumetric heat deposited by fast neutrons from the plasma and shielding the outer components; structural ring (SR), vacuum vessel (VV), and magnets.
+The blanket of choice for the FESS-FNSF project is the dual cooled lead-lithium (DCLL) \cite{ref_8} blanket. The blanket consists of $\pm$ \SI{20}{cm} radial/toroidal flow channels of LiPb eutectic (15.7 at\% Li (90\% Li6 enrichment) and 84.3 at\% Pb) surrounded by \SI{0.5}{cm} SiC FCI (flow channel insert) and \SI{0.2}{cm} layer of LiPb. The blanket is cooled by helium at high pressure (\SI{8}{MPa}) which is also used for heat removal in other components such as FW and blanket side/back/front walls. The blanket also serves other purposes besides breeding T such as the removal of volumetric heat deposited by fast neutrons from the plasma and shielding the outer components such as the structural ring (SR), the vacuum vessel (VV), and the magnets.
+
 \subsection{TBR Workflow} \label{TBR Workflow}
-workflow steps
+A workflow for the calculation of the TBR of the facility was developed which involved assessing the impact of individual design elements/details on the breeding capacity. The workflow consists mainly of a multistep approach to calculate the TBR by starting the analysis with a CAD model with a simplified breeding blanket and at each step a new detail is added such as the He flow channels, the side walls, etc. and the resulting TBR of the facility is calculated. The TBR results are shown in figure \ref{fig:TBR chart}. \vspace{5mm}
+
+Step 1 is a reference case showing the TBR for an infinite cylinder of LiPb surrounded by shields and utilised a coaxial plasma source. In step 2, the model was constructed of 16 sectors each consisting of IB and OB breeding blankets surrounded by shields and divertors with \SI{2}{cm} assembly gaps between the sectors. The 3-D configuration with such a limited radial thickness and poloidal coverage resulted in a TBR drop of 19.74\%. The assignment of the homogenized composition (34\% ferritic steel (FS), 66\% He) to the \SI{3.8}{cm} thick IB and OB FWs (step 3) resulted in a TBR drop of 8.7\%. Modeling of side walls (same thickness and composition as FW) and the \SI{2}{cm} thick back walls (80\% FS, 20\% He) (step 4) resulted in an additional TBR drop of 2.79\%. Defining the main LiPb flow channels by modeling the \SI{1.5}{cm} cooling channels with an assigned composition (58\% FS, 42\% He) (step 5) resulted in a further drop of 3.95\%. Assigning 34\% SiC to the \SI{0.5}{cm} FCI (step 6) resulted in a drop of 4.6\%. Adding the \SI{2}{cm} IB and OB stabilizing shells (W alloy) (step 7) resulted in a drop of 4.11\%.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.3]{../plots/TBR_chart.png}
+  \caption{TBR chart}
+  \label{fig:TBR chart}
+\end{figure}
+
 \subsection{Penetrations and Ports} \label{Penetrations and Ports}
-figure and results
+The facility has 12 mid-plane and 6 off-mid-plane ports, the effect of which was assessed by adding each type of ports to the respective sectors and calculate the facility overall TBR and the corresponding drop (compared to step 7). It's worth noting that the ports were modeled in detail; frames, gaps, blanket frames, and internal structures were included in the CAD model. Adding the material testing module (MTM) (in 1 sector, \SI{1}{m\textsuperscript{2}} at FW) resulted in a drop of 0.313\%. The facility has 4 tritium breeding modules (TBM) (in 4 sectors, \SI{1}{m\textsuperscript{2}} each at FW), for purposes of testing different breeding concepts, resulting in a drop in the TBR of 0.2\%. The three plasma diagnostics ports resulted in a drop of 0.95\%. Including two neutral beam injectors (NBI) (in 4 sectors, \SI{1.9}{m\textsuperscript{2}} each at FW) reduced the TBR by 1.63\%. \vspace{5mm}
+
+The remaining ports; IC (in 1 sector, \SI{2}{m\textsuperscript{2}} at FW), LH (in 1 sector, \SI{1.5}{m\textsuperscript{2}} at FW), EC (in 1 sector, \SI{0.675}{m\textsuperscript{2}} at FW), Fueling (in 1 sector, \SI{0.04}{m\textsuperscript{2}} at FW), Disruption mitigation (in 1 sector, \SI{0.04}{m\textsuperscript{2}} at FW), and two Divertor diagnostics (in 1 sector, \SI{0.15}{m\textsuperscript{2}} each at FW) resulted in a TBR drop of 0.71\%, 0.5\%, 0.23\%, 0.02\%, 0.02\%, and 0.08\%, respectively. A final step (step 8 on figure 3) with all penetrations included at the same time resulted in a drop of 4.95\%. A planar cross section of the facility with all penetrations identified is shown in figure \ref{fig:Ports}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.3]{../plots/ports.png}
+  \caption{TBR chart}
+  \label{fig:Ports}
+\end{figure}
+
 \subsection{Li-6 Enrichment} \label{Li-6 Enrichment}
 One of the advantages of the DCLL blanket is allowing the control of the T bred by controlling the  Li6 enrichment in LiPb in the main flow channels. Controlling Li6 enrichment is necessary to avoid dealing with a surplus or shortage of T. Analyses were performed to test the effect of changing Li6 enrichment on the overall TBR of the facility (with all penetrations and ports included) and it was found that the TBR dropped to $1.0191\pm 0.03\%$, $0.9892\pm 0.03\%$, and $0.9513\pm 0.03\%$ for 70\%, 60\%, and 50\% Li6  enrichment, respectively. The TBR satisfies the tritium breeding requirement of 1.04 with ~ 80\% Li6 enrichment and the results are shown in figure 6.
 \begin{figure}[h!]
@@ -141,10 +160,23 @@ One of the advantages of the DCLL blanket is allowing the control of the T bred 
   \caption{The facility overall TBR vs Li6 enrichment}
   \label{fig:Li6_enrichment}
 \end{figure}
-chart
+
 \subsection{TBR mapping} \label{TBR mapping}
-mapping of NBI, step 7, LH
-importance of middle region
+One of the design concepts implemented in the current design – based on experience with previous models – is keeping the mid-plane clear of any ports/penetrations as practically achievable. The current model has a peak NWL of 1.75 and \SI{1.31}{MW/m\textsuperscript{2}} at the OB and IB mid-planes, respectively. This could directly be related to the calculated TBR showing that more T is produced near the mid-plane compared to the upper and lower (poloidal direction) or back (radial direction) of both the \SI{0.5}{m} IB and the \SI{1}{m} OB blankets.\vspace{5mm}
+
+Using DAG-MCNP5 mesh tally capabilities the T production was mapped in the IB and OB blankets of one sector as shown in figure \ref{fig:step7} for step 7 and figure \ref{fig:NBI} for the NBI. Figure \ref{fig:step7} also shows a reduction in TBR behind the stabilizing shells due to the absorption of neutrons by W. Including any penetrations in the mid-plane will have an effect on the overall TBR by reducing the active volume of the blanket where it's most effective for T breeding, even though there may be slightly enhanced local T breeding far inside the blanket due to streaming of neutrons.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{../plots/step7.png}
+  \caption{The tritium production mapping in one sector (without ports)}
+  \label{fig:step7}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{../plots/NBI.png}
+  \caption{The tritium production mapping in one sector (with NBI)}
+  \label{fig:NBI}
+\end{figure}
 
 \section{Radiation Damage} \label{Radiation Damage}
 \subsection{dpa, He/H production} \label{dpa, He/H production}
@@ -156,7 +188,6 @@ fast neutron fluence, heating, dpa to Cu stabilizer
 introduction and r2s worflow
 \subsection{SDR} \label{SDR}
 \subsection{Decay Heat} \label{Decay Heat}
-
 
 \section{Conclusions} \label{conclusion}
 
