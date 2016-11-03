@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{multirow}
 
 \title{Neutronics aspects of the FESS-FNSF}
 \author[wisc]{A. Davis\corref{cor1}}
@@ -179,10 +180,45 @@ Using DAG-MCNP5 mesh tally capabilities the T production was mapped in the IB an
 \end{figure}
 
 \section{Radiation Damage} \label{Radiation Damage}
+The shielding analysis follows the tritium breeding blanket optimization to provide the needed protection of the lifetime components. The main shielding design philosophy (as employed in previous designs \cite{ref_9}) is that every layer provides protection to the following layers such that collectively they would protect the out-of-vessel components such as the magnets. For example, in addition to the T breeding, the blanket (both the IB and OB) is supposed to provide protection for the structural ring and in turn both would protect the vacuum vessel and finally all three layers would attenuate the neutron and gamma fluxes to such low levels to protect the magnets.
+
 \subsection{dpa, He/H production} \label{dpa, He/H production}
-at FW and radial distribution of damage
+The damage caused by irradiation to the in-vessel components is an important factor in the selection of materials in the design phase. The radiation damage can be quantified using two main parameters; displacement per atom (dpa) and gas (H and He) production. These parameters impact the lifetime of structural components and the potential for reweldability after irradiation.\vspace{5mm}
+
+For the FW, the peak values calculated at the mid-plane are shown in table \ref{Radiation damage values for the FW and VV}. The radial distribution of the damage to the ferretic steel alloy (F82H) is shown in figure \ref{fig:Radial Damage}. It's worth noting that there is a slight increase in the He and H production near the end of the blanket at \SI{700}{cm} due to the strong neutron reflection from the SR/VV/shield. The reweldability of the VV is directly related to the levels of H and He produced during the operation and that leads to setting a limit of \SI{1}{He appm} which shouldn't be exceeded at any time during plant operation. An issue that needs to be addressed is the streaming through the assembly gaps (\SI{2}{cm} between the OB and IB sectors) and all penetrations described in section \ref{Penetrations and Ports} which will cause peaking in radiation damage to the exposed portions of the VV. The results of the damage at the VV mid-plane (away from the NBIs) are listed in table \ref{Radiation damage values for the FW and VV}.   
+\begin{table}
+	\caption{Radiation damage values for the FW and VV}
+	\label{Radiation damage values for the FW and VV}
+	\begin{tabular}{ |c|c|c|c|c| } 
+		\hline
+		{} & \multicolumn{2}{|c|}{FW} & \multicolumn{2}{|c|}{VV} \\
+		\hline
+		{} & IB & OB & IB & OB \\
+		\hline
+		\multirow{2}{6em}{Damage [dpa/FPY]} & 13.70 $\pm$ 1.53\% & 15.25 $\pm$ 0.92\% & 0.1495 $\pm$ 0.64\% & 0.0114 $\pm$ 0.36\%  \\
+		& {} & {} & {} & {} \\
+		\hline
+		\multirow{2}{6em}{He [appm/FPY]} & 137.30 $\pm$ 2.52\% & 154.58 $\pm$ 1.41\% & 0.3109 $\pm$ 8.83\% & 0.0029 $\pm$ 13.81\%  \\
+		& {} & {} & {} & {} \\
+		\hline
+		\multirow{2}{6em}{He/dpa ratio} & 10.02 & 10.14 & 2.08 & 0.26  \\
+		& {} & {} & {} & {} \\
+		\hline
+		\multirow{2}{6em}{H [appm/FPY]} & 613.50 $\pm$ 2.42\% & 691.94 $\pm$ 1.35\% & 0.2462 $\pm$ 8.92\% & 0.0025 $\pm$ 12.99\%  \\
+		& {} & {} & {} & {} \\
+		\hline
+	\end{tabular}
+\end{table}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{../plots/radialdamage.png}
+  \caption{The radial distribution of radiation damage at OB}
+  \label{fig:Radial Damage}
+\end{figure}
+
 \subsection{Magnet damage} \label{Magnet damage}
-fast neutron fluence, heating, dpa to Cu stabilizer
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+The magnet is a critical component of the facility and is considered the main focus of all shielding optimization efforts. Following the shield design philosophy stated previously, the 3-D neutronics analysis confirmed that the radiation levels at the magnet winding pack (WP) met the limits set by the magnet designers. Calculations showed that the fast (E $>$ \SI{0.1}{MeV}) neutron fluence at the WP 1.35\e{18} $\pm$ 4.58\% n/cm\textsuperscript{2} is well below the limit (5\e{18} n/cm\textsuperscript{2}). The LT shield behind the VV has WC (37\%) and H2O (33\%) which combined have superior shielding capacity in attenuating the neutron flux. The peak nuclear heating at the coil case “CC” is 0.26 $\pm$ 2.55\% mW/cm\textsuperscript{3}, below the limit of \SI{2}{mW/cm\textsuperscript{3}}. The peak dpa to the Cu stabilizer is 9.54\e{-5} $\pm$ 4.1\% dpa/FPY, also below the limit of 10\e{-4} dpa/FPY.
 
 \section{Shutdown Dose Rate Calculations} \label{Shutdown Dose Rate Calculations}
 introduction and r2s worflow
@@ -210,6 +246,8 @@ X-5 Monte Carlo Team, {MCNP a General Monte Carlo N-Particle Transport Code Vers
 D. L. ALDAMA and et al., {“FENDL2.1, Update of an Evaluated Nuclear Data Library for Fusion applications.” IAEA report INDC (NDS) 467, Vienna, Austria (2004).}
 \bibitem{ref_8}
 S. MALANG et al., {“Development of the Lead Lithium (DCLL) Blanket Concept,” Fusion Science and Technology, 60, 249 (2011).}
+\bibitem{ref_9}
+L. EL-GUEBALY and the ARIES Team, {“Overview of ARIES-RS Neutronics and Radiation Shielding: Key Issues and Main Conclusions,” Fusion Engineering and Design, vol. 38, p. 139 – 158 (1997).}
 \end{thebibliography}
 
 \end{document}
