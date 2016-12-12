@@ -231,15 +231,26 @@ For the FW, the peak values calculated at the mid-plane are shown in table \ref{
 The magnet is a critical component of the facility and is considered the main focus of all shielding optimization efforts. Following the shield design philosophy stated previously, the 3-D neutronics analysis confirmed that the radiation levels at the magnet winding pack (WP) met the limits set by the magnet designers. Calculations showed that the fast (E $>$ \SI{0.1}{MeV}) neutron fluence at the WP 1.35\e{18} $\pm$ 4.58\% n/cm\textsuperscript{2} is well below the limit (5\e{18} n/cm\textsuperscript{2}). The LT shield behind the VV has WC (37\%) and H2O (33\%) which combined have superior shielding capacity in attenuating the neutron flux. The peak nuclear heating at the coil case “CC” is 0.26 $\pm$ 2.55\% mW/cm\textsuperscript{3}, below the limit of \SI{2}{mW/cm\textsuperscript{3}}. The peak dpa to the Cu stabilizer is 9.54\e{-5} $\pm$ 4.1\% dpa/FPY, also below the limit of 10\e{-4} dpa/FPY.
 
 \section{Shutdown Dose Rate Calculations} \label{Shutdown Dose Rate Calculations}
-introduction, r2s worflow, results
-\subsection{SDR} \label{SDR}
-\subsection{Decay Heat} \label{Decay Heat}
+Part of the design process of next step machines like the FESS-FNSF is maintenance. The current design allows moving each sector of the 16 sectors individually through designed ports for purposes of maintenance or repair of components. An important question that needs to be aswered during the analysis phase of the design is the wait time after shutdown of the machine till the radiation levels are dropped to the allowed limits for personal access or handling outside the shield. To achieve such task, the calculation of the shutdown dose rate with high certainty, state-of-the-art tools were used. DAG-MCNP5 was used for photon transport and the activation code ALARA was used for nuclides inventory analysis.\vspace{5mm}   
+
+\subsection{Workflow} \label{SDR_workflow}
+The shutdown dose rate is due to decay photons emitted by radioactive nuclides generated during operation from neutron interactions. The calculation of shutdown dose rate is achieved following three main steps; 1) Neutron transport calculation, 2) Nuclide inventory calculation, and 3) Decay gamma transport calculations.\vspace{5mm}
+
+Step (1) involved neutron transport calculation on the facility without any ports or penetrations inserted which is believed to produce an upper bound for the radiation levels due to the fact that insertion of ports remove parts of the active volume of sectors leading to streaming to the outer VV and LT shield. Using meshtally capabiities of DAG-MCNP5 the spatial distribution of the neutron flux on a \SI{6x6x6}{cm} mesh covering one sector of the 16 sectors was calculated. In step (2) the activation inventories and decay gamma sources (spectrum and intensity) were calculated for all regions in the sector using the corresponding materials along with the associated neutron flux spectra obtained in step (1). A simplified irradiation scenario was used; \SI{0}{s}, \SI{1}{d}, \SI{2}{d}, \SI{7}{d}, \SI{14}{d}, \SI{0.1}{y}, and \SI{0.25}{y}.\vspace{5mm}
+
+The produced distribution of the decay gamma intensities in the mesh from step (2) is then used to produce the photon source distribution using the r2s module from the PyNE toolkit. The module produces a source file for each time step of the irradiation scenario which is then used for photon transport on the sector using DAG-MCNP5 totalling 7 calculations.\vspace{5mm}
+
+\subsection{SDR: results} \label{SDR}
+
+
+\subsection{Decay Heat: results} \label{Decay Heat}
+
 
 \section{Conclusions} \label{conclusion}
 
 \newpage
 \section{References}
-\begin{thebibliography}{10} 
+\begin{thebibliography}{13} 
 \bibitem{ref_1} 
 C. E. KESSEL, et al., {“The Fusion Nuclear Science Facility, the Critical Step in the Pathway to Fusion Energy,” Fusion Science and Technology, vol. 68, p. 225–236 (2015).}
 \bibitem{ref_2} 
@@ -267,5 +278,4 @@ S. MALANG et al., {“Development of the Lead Lithium (DCLL) Blanket Concept,”
 \bibitem{ref_13}
 L. EL-GUEBALY and the ARIES Team, {“Overview of ARIES-RS Neutronics and Radiation Shielding: Key Issues and Main Conclusions,” Fusion Engineering and Design, vol. 38, p. 139 – 158 (1997).}
 \end{thebibliography}
-
 \end{document}
