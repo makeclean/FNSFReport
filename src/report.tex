@@ -261,9 +261,9 @@ The total nuclear heating results for the stabilizing shells on the OB and IB ar
 		\hline
 		{LT shield} & 0.18 $\pm$ 0.06\% & 0.12 $\pm$ 0.25\% & 0.31 $\pm$ 0.11\% \\
 		\hline
-		{IB} & 3.51 $\pm$ 0.14\% & 2.83 $\pm$ 0.28\% & 6.34 $\pm$ 0.15\% \\
+		{IB assembly} & 3.51 $\pm$ 0.14\% & 2.83 $\pm$ 0.28\% & 6.34 $\pm$ 0.15\% \\
 		\hline
-		{OB} & 9.95 $\pm$ 0.10\% & 9.03 $\pm$ 0.17\% & 18.98 $\pm$ 0.10\% \\
+		{OB assembly} & 9.95 $\pm$ 0.10\% & 9.03 $\pm$ 0.17\% & 18.98 $\pm$ 0.10\% \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -285,10 +285,17 @@ Step (1) involved neutron transport calculation on the facility without any port
 The produced distribution of the decay gamma intensities in the mesh from step (2) is then used to produce the photon source distribution using the r2s module from the PyNE toolkit. The module produces a source file for each time step of the irradiation scenario which is then used for photon transport on the sector using DAG-MCNP5 totalling 7 calculations. Also for the purpose of clculating the temperature rise due to the desipated energy in the sector the heating due to the decay gamma energy deposition was calculated for each time step in the irradiation scenario. \vspace{5mm}
 
 \subsection{SDR: results} \label{SDR}
+In step 1 of the SDDR calculation workflow the neutron flux was calculated over a mesh covering one sector. the mesh used is 6.02 x 5.73 x \SI{5.98}{cm} (x, y, z directions) and a mapping is shown in figure \ref{fig:N flux mapping}. 
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{../plots/SDDR_nmap_xy.png}
+  \caption{Neutron flux mapping in one sector for SDDR calculations "vertical cross section"}
+  \label{fig:N flux mapping}
+\end{figure}
 
 \subsection{Decay Heat: results} \label{Decay Heat}
-Table \ref{photon heating} gives the results of decay gamma heating in one sector at different times following the shutdown of the facility. The source strength at each time step was calculated using ALARA.
+Table \ref{photon heating} gives the results of decay gamma heating in one sector at different times following the shutdown of the facility obtained using DAG-MCNP5 heating tally (F6). The source intensity at each time step was calculated using ALARA and was used as a tally multiplier and the values are given in the table also for each time step.
 
 \begin{table}[h!]
 	\caption{Photon heating following shutdown}
