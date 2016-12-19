@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{siunitx}
 \usepackage{multirow}
+\usepackage{subcaption}
 
 \title{Neutronics Aspects of the FESS-FNSF}
 \author[wisc]{A. Davis\corref{cor1}}
@@ -180,16 +181,21 @@ One of the concepts implemented in the current design – based on experience wi
 
 Using DAG-MCNP5 mesh tally capabilities the T production was mapped in the IB and OB blankets of one sector as shown in figure \ref{fig:step7} for step 7 and figure \ref{fig:NBI} for the NBI. Figure \ref{fig:step7} also shows a reduction in TBR behind the stabilizing shells due to the absorption of neutrons by W. Including any penetrations in the mid-plane will have an effect on the overall TBR by reducing the active volume of the blanket where it's most effective for T breeding, even though there may be slightly enhanced local T breeding far inside the blanket due to streaming of neutrons.
 \begin{figure}[h!]
+\centering
+\begin{subfigure}{0.4\textwidth}
   \centering
-  \includegraphics[scale=0.4]{../plots/step7.png}
-  \caption{The tritium production mapping in one sector (without ports)}
+  \includegraphics[width = \textwidth]{../plots/step7.png}
+  \caption{Sector without any ports}
   \label{fig:step7}
-\end{figure}
-\begin{figure}[h!]
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
   \centering
-  \includegraphics[scale=0.4]{../plots/NBI.png}
-  \caption{The tritium production mapping in one sector (with NBI)}
+  \includegraphics[width = \textwidth]{../plots/NBI.png}
+  \caption{sector with NBI)}
   \label{fig:NBI}
+\end{subfigure}
+\caption{Mapping of the tritium production in two different sectors}
+\label{fig:TBR mapping}
 \end{figure}
 
 \section{Radiation Damage} \label{Radiation Damage}
