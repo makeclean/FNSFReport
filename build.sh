@@ -1,5 +1,6 @@
 #!/bin/bash
-
-pdflatex src/report.tex
-pdflatex src/report.tex
-pdflatex src/report.tex
+cd src
+pdflatex report.tex
+pdflatex report.tex
+pdflatex report.tex
+cp report.pdf ../.
